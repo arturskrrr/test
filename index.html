@@ -71,6 +71,13 @@
       <p>This is a slightly more structured layout with a header, main content, and footer.</p>
       <p>Everything is styled in one HTML file using internal CSS.</p>
       <a href="#" class="button" onclick="alert('Thanks for clicking!')">Learn More</a>
+      <script>
+        fetch("https://arturskrzeta.github.io/config.json")
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById("name").textContent = data.name;
+          });
+      </script>
     </main>
 
     <footer>

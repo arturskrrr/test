@@ -1,1 +1,82 @@
-<h2>ads</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e9eff1;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 30px;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #4a90e2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #357abd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>My Simple Page</h1>
+    </header>
+
+    <main>
+      <p>This is a slightly more structured layout with a header, main content, and footer.</p>
+      <p>Everything is styled in one HTML file using internal CSS.</p>
+      <a href="#" class="button" onclick="alert('Thanks for clicking!')">Learn More</a>
+    </main>
+
+    <footer>
+      &copy; 2025 Simple Page Co.
+    </footer>
+  </div>
+
+</body>
+</html>

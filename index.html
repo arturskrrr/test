@@ -1,89 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Minimal Layout</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #e9eff1;
+      background: #f4f4f4;
       color: #333;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-
     header {
-      background-color: #4a90e2;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      background: #222;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    main {
-      padding: 30px;
+    header h1 {
+      margin: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
     }
 
     footer {
-      background-color: #f2f2f2;
+      background: #222;
+      color: #fff;
       text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      color: #777;
+      padding: 2rem;
     }
 
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: #4a90e2;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
-    a.button:hover {
-      background-color: #357abd;
+    #topBtn:hover {
+      background: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <h1>My Simple Page</h1>
-    </header>
+  <header>
+    <h1>John Doe</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-      <p>This is a slightly more structured layout with a header, main content, and footer.</p>
-      <p>Everything is styled in one HTML file using internal CSS.</p>
-      <a href="#" class="button" onclick="alert('Thanks for clicking!')">Learn More</a>
-      <script>
-        fetch("https://arturskrzeta.github.io/config.json")
-          .then(res => res.json())
-          .then(data => {
-            document.getElementById("name").textContent = data.name;
-          });
-      </script>
-    </main>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm John, a passionate web developer who loves building interactive and responsive websites. I specialize in HTML, CSS, JavaScript, and React.</p>
+  </section>
 
-    <footer>
-      &copy; 2025 Simple Page Co.
-    </footer>
-  </div>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio to showcase my skills and projects.</p>
+      </div>
+      <div class="project">
+        <h3>Todo App</h3>
+        <p>A simple task manager built with vanilla JavaScript and local storage.</p>
+      </div>
+      <div class="project">
+        <h3>Weather App</h3>
+        <p>Displays current weather using OpenWeather API and geolocation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>You can reach me via email at <a href="mailto:john@example.com">john@example.com</a> or on <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a>.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 John Doe. All rights reserved.</p>
+  </footer>
+
+  <button id="topBtn" title="Go to top">↑</button>
+
+  <script>
+    // Scroll to top button
+    const topBtn = document.getElementById("topBtn");
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 
 </body>
 </html>

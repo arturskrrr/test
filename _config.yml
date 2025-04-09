@@ -1,0 +1,9 @@
+title: Jane Smith
+tagline: Frontend Developer
+email: jane@example.com
+hero_text: Hello, I'm Jane!
+hero_subtext: A Frontend Developer who loves clean code & creative design.
+skills:
+  - HTML & CSS
+  - JavaScript
+  - React

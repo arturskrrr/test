@@ -1,9 +1,19 @@
-title: Artur Skrzeta
-tagline: Frontend Developer
-email: jane@example.com
-hero_text: Hello, I'm Jane!
-hero_subtext: A Frontend Developer who loves clean code & creative design.
+title: Artur Krrr
+hero_text: Hi, I'm Artur 👋
+hero_subtext: I'm a creative web developer who builds fast, clean, and beautiful websites.
+email: artur@example.com
+
 skills:
   - HTML & CSS
-  - JavaScript
+  - JavaScript (ES6+)
   - React
+  - Git & GitHub
+  - Responsive Design
+
+projects:
+  - title: Portfolio Site
+    description: A responsive portfolio using HTML, CSS, JS, and Liquid on GitHub Pages.
+  - title: Weather App
+    description: Weather app using OpenWeather API with geolocation support.
+  - title: Todo App
+    description: A minimal task manager built with vanilla JS.

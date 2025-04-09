@@ -1,166 +1,41 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background: #222;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    header h1 {
-      margin: 0;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .project {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      flex: 1 1 250px;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    #topBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: none;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1rem;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    #topBtn:hover {
-      background: #0056b3;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 0.5rem;
-      }
-    }
-  </style>
+  <title>{{ site.title }} | Portfolio</title>
 </head>
 <body>
 
   <header>
-    <h1>John Doe</h1>
+    <h1>{{ site.title }}</h1>
     <nav>
-      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm John, a passionate web developer who loves building interactive and responsive websites. I specialize in HTML, CSS, JavaScript, and React.</p>
+  <section class="hero">
+    <h2>{{ site.hero_text }}</h2>
+    <p>{{ site.hero_subtext }}</p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Portfolio Website</h3>
-        <p>A personal portfolio to showcase my skills and projects.</p>
-      </div>
-      <div class="project">
-        <h3>Todo App</h3>
-        <p>A simple task manager built with vanilla JavaScript and local storage.</p>
-      </div>
-      <div class="project">
-        <h3>Weather App</h3>
-        <p>Displays current weather using OpenWeather API and geolocation.</p>
-      </div>
-    </div>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      {% for skill in site.skills %}
+        <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>You can reach me via email at <a href="mailto:john@example.com">john@example.com</a> or on <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a>.</p>
+    <p>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
   </section>
-
-  <footer>
-    <p>© 2025 John Doe. All rights reserved.</p>
-  </footer>
-
-  <button id="topBtn" title="Go to top">↑</button>
-
-  <script>
-    // Scroll to top button
-    const topBtn = document.getElementById("topBtn");
-
-    window.onscroll = function () {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        topBtn.style.display = "block";
-      } else {
-        topBtn.style.display = "none";
-      }
-    };
-
-    topBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
 
 </body>
 </html>
